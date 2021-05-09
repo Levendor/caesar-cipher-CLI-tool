@@ -54,7 +54,7 @@ Do not leave an arguments empty, it will lead to error!
 
 ```caesar-coder -a encode -s 1 -o output.txt```
 
-5. Input and output files if omitted
+5. Input and output files is omitted
 
 ```caesar-coder -a encode -s 1```
 
