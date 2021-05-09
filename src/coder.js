@@ -1,15 +1,15 @@
 export class CaesarCoder {
   alphabetSize = 26;
 
-  encode = (shift, text) => {
-    return this.code(shift, text);
+  encode = (text, shift) => {
+    return this.code(text, shift);
   }
-  decode = (shift, text) => {
+  decode = (text, shift) => {
     const decodeShift = -shift;
-    return this.code(decodeShift, text);
+    return this.code(text, decodeShift);
   }
 
-  code = (shift, text) => {
+  code = (text, shift) => {
     const getCharCodesArray = (text) => {
       const charArray = String(text).split('');
       return charArray.map((char) => char.charCodeAt(0));
