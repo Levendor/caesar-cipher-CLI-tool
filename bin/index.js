@@ -15,7 +15,7 @@ const transformable = createTransformStream(transformFunction, shift);
 const writable = createWritableStream(output);
 
 const onError = (error) => {
-  if (error) process.stderr.write(error.message + '\n')
+  if (error) process.stderr.end(error.message + '\n')
   process.exit(1);
 }
 
