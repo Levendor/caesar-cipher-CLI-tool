@@ -4,10 +4,10 @@ import { program } from 'commander';
 import { ALLOWED_ACTIONS } from './constants.js';
 
 program
-  .requiredOption('-a, --action <action>', 'encode or decode action')
-  .requiredOption('-s, --shift <value>', 'a shift')
-  .option('-i, --input <path>', 'path to input file')
-  .option('-o, --output <path>', 'path to output file')
+  .requiredOption('-a, --action <action>', 'type of action, required, should be a string and "encode" or "decode" only')
+  .requiredOption('-s, --shift <value>', 'cipher key, required, should be an integer value, positive or negative')
+  .option('-i, --input <path>', 'path to an input file, optional, should be a valid path to an existed .txt file')
+  .option('-o, --output <path>', 'path to an output file, optional, should be a valid path to an existed .txt file')
   .parse(process.argv)
 const options = program.opts();
 

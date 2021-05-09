@@ -21,10 +21,10 @@ __Please be advised that all source code is currently in develop branch!__
 To activate a coder, type ```caesar-coder``` and its arguments in command line.
 
 The CLI tool receive following arguments:
- 1. -a, --action: type of action, required, should be a string and 'encode' or 'decode' only;
- 2. -s, --shift: cipher key, required, should be an integer value, positive or negative;
- 3. -i, --input: path to an input file, optional, should be a valid path to an existed .txt file;
- 4. -o, --output: path to an output file, optional, should be a valid path to an existed .txt file;
+ 1. ```-a, --action```: type of action, required, should be a string and 'encode' or 'decode' only;
+ 2. ```-s, --shift```: cipher key, required, should be an integer value, positive or negative;
+ 3. ```-i, --input```: path to an input file, optional, should be a valid path to an existed .txt file;
+ 4. ```-o, --output```: path to an output file, optional, should be a valid path to an existed .txt file;
 
 Type ```caesar-coder --help``` in command line to get a list of options.
 
