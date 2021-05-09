@@ -1,0 +1,25 @@
+{
+  "name": "caesar-cipher-cli-tool",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {},
+  "bin": {
+    "caesar-coder": "./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Levendor/caesar-cipher-CLI-tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Levendor/caesar-cipher-CLI-tool/issues"
+  },
+  "homepage": "https://github.com/Levendor/caesar-cipher-CLI-tool#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
+}
