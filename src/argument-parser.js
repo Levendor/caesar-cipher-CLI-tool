@@ -1,13 +1,13 @@
 import * as path from 'path';
-import { access } from 'fs';
+import { accessSync } from 'fs';
 import { program } from 'commander';
 import { ALLOWED_ACTIONS } from './constants.js';
 
 program
   .requiredOption('-a, --action <action>', 'type of action, required, should be a string and "encode" or "decode" only')
   .requiredOption('-s, --shift <value>', 'cipher key, required, should be an integer value, positive or negative')
-  .option('-i, --input <path>', 'path to an input file, optional, should be a valid path to an existed .txt file')
-  .option('-o, --output <path>', 'path to an output file, optional, should be a valid path to an existed .txt file')
+  .option('-i, --input [path]', 'path to an input file, optional, should be a valid path to an existed .txt file')
+  .option('-o, --output [path]', 'path to an output file, optional, should be a valid path to an existed .txt file')
   .parse(process.argv)
 const options = program.opts();
 
@@ -23,9 +23,11 @@ process.stderr.end(`Invalid shift! Shift must be integer value.`);
 process.exit(9);
 }
 
-const input = options.input ? path.resolve(options.input) : options.input;
+const input = options.input && typeof options.input !== 'boolean'
+  ? path.resolve(options.input)
+  : '';
 if (input) {
-  access(input, (error) => {
+  accessSync(input, (error) => {
     if (error) {
       process.stderr.end('Invalid input file! No such file or file is unavailable.');
       process.exit(9);
@@ -33,9 +35,11 @@ if (input) {
   });
 }
 
-const output = options.output ? path.resolve(options.output) : options.output;
+const output = options.output && typeof options.output !== 'boolean'
+  ? path.resolve(options.output)
+  : '';
 if (output) {
-  access(output, (error) => {
+  accessSync(output, (error) => {
     if (error) {
       process.stderr.end('Invalid output file! No such file or file is unavailable.');
       process.exit(9);
