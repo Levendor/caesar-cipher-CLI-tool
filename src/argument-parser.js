@@ -1,5 +1,5 @@
 import * as path from 'path';
-import { accessSync } from 'fs';
+import { accessSync, constants } from 'fs';
 import { program } from 'commander';
 import { ALLOWED_ACTIONS } from './constants.js';
 
@@ -27,7 +27,7 @@ const input = options.input && typeof options.input !== 'boolean'
   ? path.resolve(options.input)
   : '';
 if (input) {
-  accessSync(input, (error) => {
+  accessSync(input, constants.F_OK | constants.R_OK, (error) => {
     if (error) {
       process.stderr.end('Invalid input file! No such file or file is unavailable.');
       process.exit(9);
@@ -39,7 +39,7 @@ const output = options.output && typeof options.output !== 'boolean'
   ? path.resolve(options.output)
   : '';
 if (output) {
-  accessSync(output, (error) => {
+  accessSync(output, constants.F_OK | constants.W_OK, (error) => {
     if (error) {
       process.stderr.end('Invalid output file! No such file or file is unavailable.');
       process.exit(9);
