@@ -1,5 +1,7 @@
 # caesar-cipher-CLI-tool
 
+__Please be advised that all source code is currently in develop branch!__
+
 ### Installation
 
 1. Clone the repository to local machine
@@ -7,9 +9,11 @@
 2. Open a command line shell and navigate to cloned folder
 
 3. Install all dependencies
+
   ```npm install```
 
 4. Install CLI tool
+
   ```npm install -g```
 
 ### Usage
@@ -28,7 +32,31 @@ In case of omitted input argument, a command line will be used for input encodin
 
 In case of omitted output argument, a command line will be used for display an encoded text.
 
-There is a dummy input and output files are prepared in the root folder of CLI tool. Paste ```input.txt``` and ```output.txt``` strings in corresponding arguments to achieve them. Otherwise full absolute or relative path should b provided.
+There are dummy input and output files prepared in the root folder of CLI tool. Paste ```input.txt``` and ```output.txt``` strings in corresponding arguments to achieve them. Otherwise full absolute or relative path should be provided.
+
+Do not leave an arguments empty, it will lead to error!
+
+### Examples
+
+1. Input and outputs files are in root folder:
+
+```caesar-coder -a encode -s 1 -i input.txt -o output.txt```
+
+2. Input and outputs files are in src folder:
+
+```caesar-coder -a encode -s 1 -i src/input.txt -o src/output.txt```
+
+3. Output file is omitted
+
+```caesar-coder -a encode -s 1 -i input.txt```
+
+4. Input file is omitted
+
+```caesar-coder -a encode -s 1 -o output.txt```
+
+5. Input and output files if omitted
+
+```caesar-coder -a encode -s 1```
 
 ### After use
 
