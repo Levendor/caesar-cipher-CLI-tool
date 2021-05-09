@@ -27,24 +27,28 @@ const input = options.input && typeof options.input !== 'boolean'
   ? path.resolve(options.input)
   : '';
 if (input) {
-  accessSync(input, constants.F_OK | constants.R_OK, (error) => {
-    if (error) {
-      process.stderr.end('Invalid input file! No such file or file is unavailable.');
-      process.exit(9);
-    }
-  });
+  try {
+    accessSync(input, constants.F_OK | constants.R_OK);
+  } catch (error) {
+    process.stderr.write('Invalid input file! No such file or file is unavailable.');
+    process.exit(9);
+  }
 }
 
 const output = options.output && typeof options.output !== 'boolean'
   ? path.resolve(options.output)
   : '';
 if (output) {
-  accessSync(output, constants.F_OK | constants.W_OK, (error) => {
-    if (error) {
-      process.stderr.end('Invalid output file! No such file or file is unavailable.');
-      process.exit(9);
-    }
-  });
+  if (output === input) {
+    process.stderr.end('Invalid output file! Path to output file cannot be equals to path to input file.');
+    process.exit(9);
+  }
+  try {
+    accessSync(output, constants.F_OK | constants.W_OK);
+  } catch (error) {
+    process.stderr.end('Invalid output file! No such file or file is unavailable.');
+    process.exit(9);
+  }
 }
 
 export { action, shift, input, output };
