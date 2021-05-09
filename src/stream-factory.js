@@ -18,7 +18,7 @@ export function createWritableStream(pathToFile) {
 export function createTransformStream(transformFunction, ...args) {
   return new Transform({
     transform(chunk, encoding = 'utf-8', callback) {
-      const text = chunk.toString();
+      const text = chunk.toString(encoding);
       const encodedText = transformFunction(text, ...args);
       this.push(encodedText);
       this.push('\n');

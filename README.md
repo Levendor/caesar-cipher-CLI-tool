@@ -34,7 +34,7 @@ In case of omitted output argument, a command line will be used for display an e
 
 There are dummy input and output files prepared in the root folder of CLI tool. Paste ```input.txt``` and ```output.txt``` strings in corresponding arguments to achieve them. Otherwise full absolute or relative path should be provided.
 
-Do not leave an arguments empty, it will lead to error!
+Do not leave an required arguments empty, it will lead to an error!
 
 ### Examples
 
