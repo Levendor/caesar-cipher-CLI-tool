@@ -17,9 +17,9 @@ if (typeof action === 'boolean' || !ALLOWED_ACTIONS.includes(action)) {
   process.exit(9);
 }
 
-const shift = action === 'encode' ? Number(options.shift) : -Number(options.shift);
+const shift = Number(options.shift);
 if (Number.isNaN(shift) || (shift ^ 0) !== shift) {
-  process.stderr.end(`Invalid shift! Shift must be integer value.`);
+  process.stderr.end('Invalid shift! Shift must be integer value.');
   process.exit(9);
 }
 
